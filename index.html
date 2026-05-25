@@ -1,228 +1,280 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)file:///C:/Users/alexa/Downloads/pedidos_dr_farol_1.html -->
-<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Dr. Farol — Pedido</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f4f0; color: #1a1a1a; font-size: 16px; }
-  .header { background: #0f6e56; padding: 18px 16px 14px; display: flex; align-items: center; gap: 10px; }
-  .header-logo { color: #fff; font-size: 13px; font-weight: 600; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; letter-spacing: .4px; }
-  .header h1 { color: #fff; font-size: 18px; font-weight: 500; }
-  .content { padding: 14px 14px 120px; }
-  .sec { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 12px; border: 1px solid #e8e8e4; }
-  .sec-title { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 14px; }
-  .field { margin-bottom: 12px; }
-  .field:last-child { margin-bottom: 0; }
-  .field label { font-size: 13px; color: #555; display: block; margin-bottom: 5px; font-weight: 500; }
-  .field input, .field textarea {
-    width: 100%; padding: 13px 14px; border: 1.5px solid #e0e0db; border-radius: 10px;
-    font-size: 16px; background: #fafaf8; color: #1a1a1a; font-family: inherit;
-    -webkit-appearance: none; appearance: none;
-  }
-  .field input:focus, .field textarea:focus { outline: none; border-color: #0f6e56; background: #fff; }
-  .field textarea { min-height: 72px; resize: vertical; }
-  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .col-hdr { display: grid; grid-template-columns: 1fr 56px 90px 40px; gap: 6px; margin-bottom: 6px; padding: 0 2px; }
-  .col-hdr span { font-size: 11px; color: #aaa; font-weight: 500; }
-  .prod-row { display: grid; grid-template-columns: 1fr 56px 90px 40px; gap: 6px; margin-bottom: 8px; align-items: center; }
-  .prod-row input {
-    padding: 12px 10px; border: 1.5px solid #e0e0db; border-radius: 10px;
-    font-size: 15px; background: #fafaf8; color: #1a1a1a; width: 100%;
-    font-family: inherit; -webkit-appearance: none;
-  }
-  .prod-row input:focus { outline: none; border-color: #0f6e56; background: #fff; }
-  .prod-row input[type="number"] { text-align: center; }
-  .rm-btn {
-    width: 40px; height: 46px; background: #fff; border: 1.5px solid #e0e0db;
-    border-radius: 10px; cursor: pointer; font-size: 18px; color: #bbb;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .rm-btn:active { background: #fff0f0; border-color: #f99; color: #c00; }
-  .add-btn {
-    width: 100%; padding: 13px; border: 1.5px dashed #ccc; border-radius: 10px;
-    background: none; font-size: 14px; color: #777; cursor: pointer;
-    display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px;
-  }
-  .add-btn:active { background: #f5f5f0; }
-  .totais { background: #f7f7f3; border-radius: 10px; padding: 12px 14px; margin-top: 14px; }
-  .t-row { display: flex; justify-content: space-between; font-size: 14px; color: #777; padding: 3px 0; }
-  .t-total { display: flex; justify-content: space-between; font-size: 20px; font-weight: 600; color: #1a1a1a; border-top: 1px solid #e0e0db; padding-top: 10px; margin-top: 6px; }
-  .footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 14px 24px; background: #f4f4f0; border-top: 1px solid #e8e8e4; }
-  .wbtn {
-    width: 100%; padding: 17px; border-radius: 14px; border: none;
-    background: #25D366; color: #fff; font-size: 17px; font-weight: 600;
-    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
-    -webkit-tap-highlight-color: transparent; letter-spacing: .2px;
-  }
-  .wbtn:active { background: #1bb155; transform: scale(.98); }
-  .err { font-size: 13px; color: #c00; margin-bottom: 8px; text-align: center; display: none; }
-  .desc-field { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
-  .desc-field label { font-size: 13px; color: #555; font-weight: 500; white-space: nowrap; }
-  .desc-field input { flex: 1; padding: 12px 14px; border: 1.5px solid #e0e0db; border-radius: 10px; font-size: 16px; background: #fafaf8; color: #1a1a1a; -webkit-appearance: none; max-width: 130px; }
-  .desc-field input:focus { outline: none; border-color: #0f6e56; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background: #f2f2f0; color: #1a1a1a; }
+
+.topo { background: #0f6e56; padding: 16px; display: flex; align-items: center; gap: 10px; }
+.topo-badge { background: rgba(255,255,255,0.25); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
+.topo h1 { color: #fff; font-size: 18px; font-weight: 500; }
+
+.conteudo { padding: 14px 14px 130px 14px; }
+
+.bloco { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 12px; }
+.bloco-titulo { font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 14px; }
+
+.campo { margin-bottom: 11px; }
+.campo label { font-size: 13px; color: #555; font-weight: 500; display: block; margin-bottom: 4px; }
+.campo input, .campo textarea {
+  width: 100%; padding: 13px 14px;
+  border: 1.5px solid #ddd; border-radius: 10px;
+  font-size: 16px; background: #fafaf8; color: #1a1a1a;
+  font-family: inherit; -webkit-appearance: none;
+}
+.campo input:focus, .campo textarea:focus { outline: none; border-color: #0f6e56; }
+.campo textarea { min-height: 70px; resize: vertical; }
+
+.cabecalho-itens { display: grid; grid-template-columns: 1fr 55px 90px 42px; gap: 6px; margin-bottom: 5px; }
+.cabecalho-itens span { font-size: 11px; color: #aaa; font-weight: 600; }
+
+.item-linha { display: grid; grid-template-columns: 1fr 55px 90px 42px; gap: 6px; margin-bottom: 8px; align-items: center; }
+.item-linha input {
+  padding: 12px 8px; border: 1.5px solid #ddd; border-radius: 10px;
+  font-size: 15px; background: #fafaf8; color: #1a1a1a;
+  width: 100%; font-family: inherit; -webkit-appearance: none;
+}
+.item-linha input:focus { outline: none; border-color: #0f6e56; }
+.item-linha input[type=number] { text-align: center; }
+
+.btn-remover {
+  width: 42px; height: 46px; border: 1.5px solid #ddd; border-radius: 10px;
+  background: #fff; color: #bbb; font-size: 18px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.btn-remover:active { background: #fff0f0; border-color: #f99; color: #c33; }
+
+.btn-adicionar {
+  width: 100%; padding: 13px; border: 2px dashed #ddd; border-radius: 10px;
+  background: none; font-size: 14px; color: #888; cursor: pointer; margin-top: 4px;
+}
+.btn-adicionar:active { background: #f5f5f0; }
+
+.desconto-linha { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.desconto-linha label { font-size: 13px; color: #555; font-weight: 500; white-space: nowrap; }
+.desconto-linha input {
+  width: 130px; padding: 12px; border: 1.5px solid #ddd; border-radius: 10px;
+  font-size: 16px; background: #fafaf8; -webkit-appearance: none; text-align: right;
+}
+.desconto-linha input:focus { outline: none; border-color: #0f6e56; }
+
+.totais { background: #f5f5f0; border-radius: 10px; padding: 12px 14px; margin-top: 14px; }
+.total-linha { display: flex; justify-content: space-between; font-size: 14px; color: #777; padding: 3px 0; }
+.total-final { display: flex; justify-content: space-between; font-size: 20px; font-weight: 700; color: #1a1a1a; border-top: 1px solid #ddd; padding-top: 10px; margin-top: 7px; }
+
+.rodape { position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 14px 26px; background: #f2f2f0; border-top: 1px solid #ddd; }
+.erro { font-size: 13px; color: #c33; text-align: center; margin-bottom: 8px; display: none; }
+.btn-whatsapp {
+  width: 100%; padding: 17px; border-radius: 14px; border: none;
+  background: #25D366; color: #fff; font-size: 17px; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-whatsapp:active { background: #1ab255; }
+
+.icone-wa { width: 22px; height: 22px; flex-shrink: 0; }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <span class="header-logo">Dr. Farol</span>
-  <h1>Novo pedido</h1>
+<div class="topo">
+  <span class="topo-badge">Dr. Farol</span>
+  <h1>Novo Pedido</h1>
 </div>
 
-<div class="content">
+<div class="conteudo">
 
-  <div class="sec">
-    <div class="sec-title">Dados do cliente</div>
-    <div class="field"><label>Razão social</label><input type="text" id="razao" placeholder="Nome da empresa" autocomplete="organization"></div>
-    <div class="field"><label>CNPJ</label><input type="text" id="cnpj" placeholder="00.000.000/0000-00" inputmode="numeric"></div>
-    <div class="field"><label>Inscrição estadual</label><input type="text" id="ie" placeholder="Inscrição estadual" inputmode="numeric"></div>
-    <div class="field"><label>Telefone / WhatsApp</label><input type="tel" id="telefone" placeholder="(11) 99999-9999" inputmode="tel"></div>
-    <div class="field"><label>E-mail</label><input type="email" id="email" placeholder="contato@empresa.com.br" inputmode="email" autocomplete="email"></div>
+  <div class="bloco">
+    <div class="bloco-titulo">Dados do Cliente</div>
+    <div class="campo"><label>Razão Social</label><input type="text" id="razao" placeholder="Nome da empresa" /></div>
+    <div class="campo"><label>CNPJ</label><input type="text" id="cnpj" placeholder="00.000.000/0000-00" inputmode="numeric" /></div>
+    <div class="campo"><label>Inscrição Estadual</label><input type="text" id="ie" placeholder="000.000.000.000" inputmode="numeric" /></div>
+    <div class="campo"><label>Telefone / WhatsApp</label><input type="tel" id="tel" placeholder="(11) 99999-9999" /></div>
+    <div class="campo"><label>E-mail</label><input type="email" id="email" placeholder="contato@empresa.com.br" inputmode="email" /></div>
   </div>
 
-  <div class="sec">
-    <div class="sec-title">Produtos / Serviços</div>
-    <div class="col-hdr">
+  <div class="bloco">
+    <div class="bloco-titulo">Produtos / Serviços</div>
+    <div class="cabecalho-itens">
       <span>Descrição</span>
       <span style="text-align:center">Qtd</span>
-      <span style="text-align:right;padding-right:4px">Vlr unit.</span>
+      <span style="text-align:right;padding-right:6px">R$ Unit.</span>
       <span></span>
     </div>
-    <div id="lista"><div class="prod-row" id="p1"><input type="text" id="d1" placeholder="Produto / serviço" value="" oninput="calc()"><input type="number" id="q1" value="1" min="1" inputmode="numeric" oninput="calc()"><input type="number" id="v1" placeholder="0,00" value="" min="0" step="0.01" inputmode="decimal" oninput="calc()"><button class="rm-btn" onclick="rm(1)" type="button">✕</button></div></div>
-    <button class="add-btn" onclick="addItem()">+ Adicionar item</button>
-    <div class="desc-field">
+    <div id="lista-itens"></div>
+    <button class="btn-adicionar" onclick="adicionarItem()">+ Adicionar item</button>
+    <div class="desconto-linha">
       <label>Desconto (R$)</label>
-      <input type="number" id="desconto" placeholder="0,00" min="0" step="0.01" inputmode="decimal" oninput="calc()">
+      <input type="number" id="desconto" placeholder="0,00" min="0" step="0.01" inputmode="decimal" oninput="recalcular()" />
     </div>
     <div class="totais">
-      <div class="t-row"><span>Subtotal</span><span id="sub">R$ 0,00</span></div>
-      <div class="t-row"><span>Desconto</span><span id="dv">— R$ 0,00</span></div>
-      <div class="t-total"><span>Total</span><span id="tot">R$ 0,00</span></div>
+      <div class="total-linha"><span>Subtotal</span><span id="exib-sub">R$ 0,00</span></div>
+      <div class="total-linha"><span>Desconto</span><span id="exib-desc">R$ 0,00</span></div>
+      <div class="total-final"><span>Total</span><span id="exib-total">R$ 0,00</span></div>
     </div>
   </div>
 
-  <div class="sec">
-    <div class="sec-title">Observações</div>
-    <div class="field"><textarea id="obs" placeholder="Prazo de entrega, forma de pagamento, garantia..."></textarea></div>
+  <div class="bloco">
+    <div class="bloco-titulo">Observações</div>
+    <div class="campo"><textarea id="obs" placeholder="Prazo de entrega, forma de pagamento, garantia..."></textarea></div>
   </div>
 
 </div>
 
-<div class="footer">
-  <div class="err" id="err">Preencha a razão social e ao menos 1 item.</div>
-  <button class="wbtn" onclick="enviar()">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+<div class="rodape">
+  <div class="erro" id="msg-erro">Preencha a Razão Social e adicione pelo menos 1 item.</div>
+  <button class="btn-whatsapp" onclick="enviarWhatsApp()">
+    <svg class="icone-wa" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
     Enviar pelo WhatsApp
   </button>
 </div>
 
 <script>
-var n = 0;
+var contador = 0;
 
-function fmt(v) {
+function dinheiro(v) {
   return 'R$ ' + v.toFixed(2).replace('.', ',');
 }
 
-function addItem(d, q, v) {
-  n++;
-  var id = n;
+function adicionarItem() {
+  contador++;
+  var id = contador;
   var div = document.createElement('div');
-  div.className = 'prod-row';
-  div.id = 'p' + id;
+  div.className = 'item-linha';
+  div.id = 'item-' + id;
   div.innerHTML =
-    '<input type="text" id="d' + id + '" placeholder="Produto / serviço" value="' + (d || '') + '" oninput="calc()">' +
-    '<input type="number" id="q' + id + '" value="' + (q || 1) + '" min="1" inputmode="numeric" oninput="calc()">' +
-    '<input type="number" id="v' + id + '" placeholder="0,00" value="' + (v || '') + '" min="0" step="0.01" inputmode="decimal" oninput="calc()">' +
-    '<button class="rm-btn" onclick="rm(' + id + ')" type="button">✕</button>';
-  document.getElementById('lista').appendChild(div);
-  calc();
+    '<input type="text" id="desc-' + id + '" placeholder="Produto ou serviço" oninput="recalcular()">' +
+    '<input type="number" id="qtd-' + id + '" value="1" min="1" inputmode="numeric" oninput="recalcular()">' +
+    '<input type="number" id="preco-' + id + '" placeholder="0,00" min="0" step="0.01" inputmode="decimal" oninput="recalcular()">' +
+    '<button class="btn-remover" onclick="removerItem(' + id + ')" type="button">&#10005;</button>';
+  document.getElementById('lista-itens').appendChild(div);
+  recalcular();
 }
 
-function rm(id) {
-  var e = document.getElementById('p' + id);
-  if (e) e.remove();
-  calc();
-}
-
-function calc() {
-  var s = 0;
-  var itens = document.querySelectorAll('[id^="d"]');
-  for (var i = 0; i < itens.length; i++) {
-    var eid = itens[i].id.slice(1);
-    var q = parseFloat(document.getElementById('q' + eid).value) || 0;
-    var v = parseFloat(document.getElementById('v' + eid).value) || 0;
-    s += q * v;
+function removerItem(id) {
+  var el = document.getElementById('item-' + id);
+  if (el) {
+    el.remove();
+    recalcular();
   }
-  var dc = parseFloat(document.getElementById('desconto').value) || 0;
-  var t = s - dc;
-  if (t < 0) t = 0;
-  document.getElementById('sub').textContent = fmt(s);
-  document.getElementById('dv').textContent = '— ' + fmt(dc);
-  document.getElementById('tot').textContent = fmt(t);
 }
 
-function enviar() {
-  var razao = (document.getElementById('razao').value || '').trim();
-  var cnpj = (document.getElementById('cnpj').value || '').trim();
-  var ie = (document.getElementById('ie').value || '').trim();
-  var tel = (document.getElementById('telefone').value || '').trim();
-  var email = (document.getElementById('email').value || '').trim();
-  var obs = (document.getElementById('obs').value || '').trim();
+function recalcular() {
+  var subtotal = 0;
+  for (var i = 1; i <= contador; i++) {
+    var itemEl = document.getElementById('item-' + i);
+    if (!itemEl) continue;
+    var qtdEl = document.getElementById('qtd-' + i);
+    var precoEl = document.getElementById('preco-' + i);
+    if (!qtdEl || !precoEl) continue;
+    var qtd = parseFloat(qtdEl.value);
+    var preco = parseFloat(precoEl.value);
+    if (isNaN(qtd)) qtd = 0;
+    if (isNaN(preco)) preco = 0;
+    subtotal += qtd * preco;
+  }
+  var descEl = document.getElementById('desconto');
+  var desconto = parseFloat(descEl.value);
+  if (isNaN(desconto)) desconto = 0;
+  var total = subtotal - desconto;
+  if (total < 0) total = 0;
+  document.getElementById('exib-sub').textContent = dinheiro(subtotal);
+  document.getElementById('exib-desc').textContent = dinheiro(desconto);
+  document.getElementById('exib-total').textContent = dinheiro(total);
+}
 
-  var itens = '';
-  var s = 0;
-  var rows = document.querySelectorAll('[id^="d"]');
-  for (var i = 0; i < rows.length; i++) {
-    var eid = rows[i].id.slice(1);
-    var d = rows[i].value.trim();
-    var q = parseFloat(document.getElementById('q' + eid).value) || 0;
-    var v = parseFloat(document.getElementById('v' + eid).value) || 0;
-    if (d || v > 0) {
-      var tot = q * v;
-      s += tot;
-      itens += '\n• ' + (d || 'Item') + ' — ' + q + 'x ' + fmt(v) + ' = ' + fmt(tot);
-    }
+function enviarWhatsApp() {
+  var razao = document.getElementById('razao').value.trim();
+  var cnpj = document.getElementById('cnpj').value.trim();
+  var ie = document.getElementById('ie').value.trim();
+  var tel = document.getElementById('tel').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var obs = document.getElementById('obs').value.trim();
+
+  // Validar
+  var temItem = false;
+  for (var i = 1; i <= contador; i++) {
+    var itemEl = document.getElementById('item-' + i);
+    if (!itemEl) continue;
+    var descEl = document.getElementById('desc-' + i);
+    var precoEl = document.getElementById('preco-' + i);
+    if (descEl && descEl.value.trim()) { temItem = true; break; }
+    if (precoEl && parseFloat(precoEl.value) > 0) { temItem = true; break; }
   }
 
-  var err = document.getElementById('err');
-  if (!razao || !itens) {
-    err.style.display = 'block';
+  var erroEl = document.getElementById('msg-erro');
+  if (!razao || !temItem) {
+    erroEl.style.display = 'block';
     return;
   }
-  err.style.display = 'none';
+  erroEl.style.display = 'none';
 
-  var dc = parseFloat(document.getElementById('desconto').value) || 0;
-  var total = Math.max(0, s - dc);
+  // Montar itens
+  var subtotal = 0;
+  var textoItens = '';
+  for (var j = 1; j <= contador; j++) {
+    var iEl = document.getElementById('item-' + j);
+    if (!iEl) continue;
+    var dEl = document.getElementById('desc-' + j);
+    var qEl = document.getElementById('qtd-' + j);
+    var pEl = document.getElementById('preco-' + j);
+    var desc = dEl ? dEl.value.trim() : '';
+    var qtd = parseFloat(qEl ? qEl.value : 0) || 0;
+    var preco = parseFloat(pEl ? pEl.value : 0) || 0;
+    if (!desc && preco === 0) continue;
+    var linha = qtd * preco;
+    subtotal += linha;
+    textoItens += '\n  ' + (desc || 'Item') + ' — ' + qtd + 'x ' + dinheiro(preco) + ' = ' + dinheiro(linha);
+  }
 
-  var msg = '🔦 *Dr. Farol — Pedido*\n\n';
+  var desconto = parseFloat(document.getElementById('desconto').value) || 0;
+  var total = Math.max(0, subtotal - desconto);
+
+  // Montar mensagem
+  var msg = '';
+  msg += '🔦 *PEDIDO — DR. FAROL*\n';
+  msg += '─────────────────────\n';
   msg += '*Cliente:* ' + razao + '\n';
   if (cnpj) msg += '*CNPJ:* ' + cnpj + '\n';
-  if (ie) msg += '*Insc. Estadual:* ' + ie + '\n';
-  if (email) msg += '*E-mail:* ' + email + '\n';
+  if (ie) msg += '*Insc. Est.:* ' + ie + '\n';
   if (tel) msg += '*Telefone:* ' + tel + '\n';
-  msg += '\n*Itens:*' + itens + '\n\n';
-  if (dc > 0) {
-    msg += '*Subtotal:* ' + fmt(s) + '\n';
-    msg += '*Desconto:* — ' + fmt(dc) + '\n';
+  if (email) msg += '*E-mail:* ' + email + '\n';
+  msg += '─────────────────────\n';
+  msg += '*ITENS:*' + textoItens + '\n';
+  msg += '─────────────────────\n';
+  if (desconto > 0) {
+    msg += '*Subtotal:* ' + dinheiro(subtotal) + '\n';
+    msg += '*Desconto:* -' + dinheiro(desconto) + '\n';
   }
-  msg += '*Total:* ' + fmt(total) + '\n';
-  if (obs) msg += '\n*Obs:* ' + obs + '\n';
-  msg += '\n_Qualquer dúvida, estamos à disposição!_ ✅';
+  msg += '*TOTAL: ' + dinheiro(total) + '*\n';
+  if (obs) {
+    msg += '─────────────────────\n';
+    msg += '*Obs:* ' + obs + '\n';
+  }
+  msg += '─────────────────────\n';
+  msg += '_Qualquer dúvida, estamos à disposição!_ ✅';
 
-  var num = tel.replace(/\D/g, '');
+  // Montar URL
+  var numero = tel.replace(/\D/g, '');
   var url;
-  if (num.length >= 10) {
-    url = 'https://api.whatsapp.com/send?phone=55' + num + '&text=' + encodeURIComponent(msg);
+  if (numero.length >= 10) {
+    // Com DDD e número — abre direto no contato
+    url = 'https://wa.me/55' + numero + '?text=' + encodeURIComponent(msg);
   } else {
-    url = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(msg);
+    // Sem número — abre WhatsApp para escolher contato
+    url = 'https://wa.me/?text=' + encodeURIComponent(msg);
   }
-  window.location.href = url;
+
+  window.open(url, '_blank');
 }
 
-addItem();
+// Iniciar com 1 item
+adicionarItem();
 </script>
-
-
-</body></html>
+</body>
+</html>
